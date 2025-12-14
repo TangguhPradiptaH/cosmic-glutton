@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Glutton</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<h1>C⚡SMIC GLUTTΦN</h1>
+
+<div onclick="initiateLaunch()" class="btn-game-control" id="btnStart">
+    Initiate Launch (Start)
+</div>
+
+<div class="score-display">
+    Aether Orbs Collected: <span id="score" class="score-value">0</span>
+</div>
+
+<table id="grid" class="grid"></table>
+
+
+<div id="leaderboardSection" style="display:none;">
+    
+    <div id="inputForm">
+        <h2 style="color: #ff00ff; text-shadow: 0 0 10px #ff00ff;">MISSION ENDED</h2>
+        <p>Enter your designation, Commander:</p>
+        <input type="text" id="playerName" class="input-neon" placeholder="PILOT NAME" maxlength="10">
+        <button onclick="saveScore()" class="btn-save">UPLOAD SCORE</button>
+    </div>
+
+    <div id="leaderboardDisplay" style="margin-top: 20px;">
+        <h3 style="color: #00ffaa;">GALACTIC HALL OF FAME</h3>
+        <table id="leaderboardTable" class="table-neon">
+            <thead>
+                <tr>
+                    <th>RANK</th>
+                    <th>PILOT</th>
+                    <th>ORBS</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboardBody"></tbody>
+        </table>
+        
+        <div onclick="resetSimulation()" class="btn-game-control" style="margin-top: 20px;">
+            Re-Initialize System (Try Again)
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
