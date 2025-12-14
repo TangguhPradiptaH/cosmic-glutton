@@ -1,174 +1,111 @@
-body {
-  background: #0a0a2a; /* Dark Space Blue */
-  color: #00ffaa; /* Neon Green */
-  font-family: 'Consolas', monospace;
-}
-
-h1{
-  text-align: center;
-  font-size: 60pt;
-  letter-spacing: 5px;
-  text-shadow: 0 0 10px #00ffaa, 0 0 20px #00ffaa;
-  margin-bottom: 20px;
-}
-
-td {
-  width: 25px; /* Slightly smaller cells */
-  height: 25px;
-  border: solid 1px #333366; /* Subtle grid lines */
-  margin: 0px;
-  padding: 0px;
-  border-radius: 2px;
-  background: #1a1a4a; /* Darker cell background */
-  box-shadow: inset 0 0 3px #000;
-}
-
-.grid {
-  margin: 20px auto;
-  border-collapse: collapse;
-  background: #1a1a4a;
-  box-shadow: 0 0 15px #00ffaa70; /* Neon glow around the grid */
-}
-
-/* New class for the Snake Head and Body */
-.snake-head {
-    background-color: #ff00ff !important; /* Neon Magenta Head */
+/* =========================================================
+   GLOBAL STYLES
+   Mengatur tampilan umum aplikasi
+   ========================================================= */
+   body {
+    background: #0a0a2a;      /* Warna latar bertema luar angkasa */
+    color: #00ffaa;           /* Warna teks neon */
+    font-family: 'Consolas', monospace;
+  }
+  
+  /* Judul utama gim */
+  h1 {
+    text-align: center;
+    font-size: 60pt;
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px #00ffaa, 0 0 20px #00ffaa;
+    margin-bottom: 20px;
+  }
+  
+  /* =========================================================
+     GRID & CELL STYLES
+     ========================================================= */
+  td {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #333366;
+    background: #1a1a4a;
+    border-radius: 2px;
+    box-shadow: inset 0 0 3px #000;
+  }
+  
+  .grid {
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 15px #00ffaa70;
+  }
+  
+  /* =========================================================
+     SNAKE & FOOD OBJECTS
+     ========================================================= */
+  
+  /* Kepala ular */
+  .snake-head {
+    background-color: #ff00ff !important;
     box-shadow: 0 0 5px #ff00ff;
-}
-
-.snake-body {
-    background-color: #00ffff !important; /* Neon Cyan Body */
+  }
+  
+  /* Badan ular */
+  .snake-body {
+    background-color: #00ffff !important;
     box-shadow: 0 0 5px #00ffff;
-}
-
-/* New class for the Food/Target */
-.food-target {
-    background-color: #ffaa00 !important; /* Neon Orange Food */
+  }
+  
+  /* Target makanan */
+  .food-target {
+    background-color: #ffaa00 !important;
     border-radius: 50%;
     box-shadow: 0 0 8px #ffaa00;
-}
-
-.btn-game-control {
+  }
+  
+  /* =========================================================
+     BUTTONS & SCORE DISPLAY
+     ========================================================= */
+  .btn-game-control {
     border-radius: 12px;
     text-transform: uppercase;
     padding: 15px 30px;
     background-color: #333366;
     color: #00ffaa;
     font-weight: bold;
-    transition: all .3s ease;
     width: 250px;
     margin: 20px auto;
     cursor: pointer;
     text-align: center;
     border: 2px solid #00ffaa;
     box-shadow: 0 0 15px #00ffaa70;
-}
-
-.btn-game-control:hover {
+    transition: all .3s ease;
+  }
+  
+  /* Hover tombol */
+  .btn-game-control:hover {
     background-color: #00ffaa;
     color: #0a0a2a;
-    box-shadow: 0 0 20px #00ffaa;
-}
-
-#btnRestart {
-    display: none;
-    margin: 30px auto 0 auto;
-    background-color: #cc00cc; /* Different color for Restart */
-    border: 2px solid #ff00ff;
-    box-shadow: 0 0 15px #ff00ff70;
-    width: 250px;
-}
-
-#btnRestart:hover {
-    background-color: #ff00ff;
-    color: #0a0a2a;
-    box-shadow: 0 0 20px #ff00ff;
-}
-
-.score-display {
-  background-color: #1a1a4a;
-  border: 2px solid #00ffaa;
-  margin: 0px auto;
-  width: 300px;
-  padding: 10px 20px;
-  text-align: center;
-  font-size: 18pt;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #00ffaa50;
-}
-
-.score-value {
-  color: #ffaa00;
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-/* --- LEADERBOARD STYLES --- */
-#leaderboardSection {
-  text-align: center;
-  margin-top: 30px;
-  padding-bottom: 50px;
-  animation: fadeIn 1s ease;
-}
-
-.input-neon {
-  background: #0a0a2a;
-  border: 2px solid #00ffaa;
-  color: #00ffaa;
-  padding: 10px;
-  font-size: 16pt;
-  font-family: 'Consolas', monospace;
-  text-align: center;
-  width: 200px;
-  outline: none;
-  box-shadow: 0 0 10px #00ffaa50;
-}
-
-.btn-save {
-  background: #ff00ff;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  font-size: 14pt;
-  cursor: pointer;
-  font-family: 'Consolas', monospace;
-  font-weight: bold;
-  margin-left: 10px;
-  box-shadow: 0 0 10px #ff00ff;
-}
-
-.btn-save:hover {
-  background: white;
-  color: #ff00ff;
-}
-
-.table-neon {
-  margin: 0 auto;
-  width: 80%;
-  max-width: 500px;
-  border-collapse: collapse;
-  color: white;
-  box-shadow: 0 0 15px #00ffaa30;
-}
-
-.table-neon th {
-  background-color: #333366;
-  color: #00ffaa;
-  padding: 10px;
-  border: 1px solid #00ffaa;
-}
-
-.table-neon td {
-  padding: 8px;
-  border: 1px solid #333366;
-  text-align: center;
-}
-
-.table-neon tr:nth-child(1) td { color: #ffaa00; font-weight: bold; } /* Gold for #1 */
-.table-neon tr:nth-child(2) td { color: #c0c0c0; } /* Silver for #2 */
-.table-neon tr:nth-child(3) td { color: #cd7f32; } /* Bronze for #3 */
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+  }
+  
+  /* Tampilan skor */
+  .score-display {
+    background-color: #1a1a4a;
+    border: 2px solid #00ffaa;
+    width: 300px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 18pt;
+    border-radius: 8px;
+  }
+  
+  /* =========================================================
+     LEADERBOARD STYLES
+     ========================================================= */
+  #leaderboardSection {
+    text-align: center;
+    margin-top: 30px;
+    animation: fadeIn 1s ease;
+  }
+  
+  /* Animasi fade-in */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }  
