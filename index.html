@@ -1,38 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata dasar halaman -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Judul aplikasi -->
     <title>Cosmic Glutton</title>
+
+    <!-- File CSS untuk pewarnaan dan tampilan -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- File JavaScript untuk logika permainan -->
     <script src="script.js" defer></script>
 </head>
 <body>
 
+<!-- Judul utama gim -->
 <h1>C⚡SMIC GLUTTΦN</h1>
 
+<!-- Tombol untuk memulai permainan -->
 <div onclick="initiateLaunch()" class="btn-game-control" id="btnStart">
     Initiate Launch (Start)
 </div>
 
+<!-- Tampilan skor permainan -->
 <div class="score-display">
-    Aether Orbs Collected: <span id="score" class="score-value">0</span>
+    Aether Orbs Collected:
+    <span id="score" class="score-value">0</span>
 </div>
 
+<!-- Area grid permainan (diisi melalui JavaScript) -->
 <table id="grid" class="grid"></table>
 
-
+<!-- ================= LEADERBOARD SECTION ================= -->
 <div id="leaderboardSection" style="display:none;">
-    
+
+    <!-- Form input nama pemain setelah permainan berakhir -->
     <div id="inputForm">
-        <h2 style="color: #ff00ff; text-shadow: 0 0 10px #ff00ff;">MISSION ENDED</h2>
-        <p>Enter your designation, Commander:</p>
-        <input type="text" id="playerName" class="input-neon" placeholder="PILOT NAME" maxlength="10">
-        <button onclick="saveScore()" class="btn-save">UPLOAD SCORE</button>
+        <h2 class="mission-ended-title">MISSION ENDED</h2>
+        <p class="commander-text">Enter your designation, Commander:</p>
+
+        <input
+            type="text"
+            id="playerName"
+            class="input-neon"
+            placeholder="PILOT NAME"
+            maxlength="10"
+        >
+
+        <button onclick="saveScore()" class="btn-save">
+            UPLOAD SCORE
+        </button>
     </div>
 
+    <!-- Tampilan leaderboard -->
     <div id="leaderboardDisplay" style="margin-top: 20px;">
-        <h3 style="color: #00ffaa;">GALACTIC HALL OF FAME</h3>
+        <h3 class="hall-title">GALACTIC HALL OF FAME</h3>
+
         <table id="leaderboardTable" class="table-neon">
             <thead>
                 <tr>
@@ -43,7 +68,8 @@
             </thead>
             <tbody id="leaderboardBody"></tbody>
         </table>
-        
+
+        <!-- Tombol untuk mengulang permainan -->
         <div onclick="resetSimulation()" class="btn-game-control" style="margin-top: 20px;">
             Re-Initialize System (Try Again)
         </div>
